@@ -4,15 +4,12 @@ import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 
-
-
 import chs from "../public/chs.png";
 import minecraft from "../public/games/minecraft.png";
 import gud from "../public/gud-clean.png";
 
-
-const tenant = "gaming.chs.se";
-const product = "gud-gaming";
+const tenant = "boxyhq.com";
+const product = "saml-demo.boxyhq.com";
 
 export default function Home() {
   return (
@@ -37,7 +34,13 @@ export default function Home() {
           `}
           onClick={async (event) => {
             event.preventDefault();
-            signIn("boxyhq-saml", {}, { tenant, product });
+            signIn(
+              "boxyhq-saml",
+              {
+                redirectTo: "http://localhost:3000/games",
+              },
+              { tenant, product },
+            );
           }}
         >
           Get Started
