@@ -1,9 +1,18 @@
+"use client";
+
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+
+
 
 import chs from "../public/chs.png";
 import minecraft from "../public/games/minecraft.png";
 import gud from "../public/gud-clean.png";
+
+
+const tenant = "gaming.chs.se";
+const product = "gud-gaming";
 
 export default function Home() {
   return (
@@ -11,7 +20,7 @@ export default function Home() {
       <div
         className={`
           flex size-full flex-col items-center justify-center bg-gradient-to-r from-slate-950
-          to-slate-800 pb-20 pt-32
+          to-slate-800 pb-20 pt-36
         `}
       >
         <h1 className="m-20">
@@ -21,22 +30,23 @@ export default function Home() {
             A part of Chalmers student union
           </p>
         </h1>
-        <Link href={"/signup"} className="mb-20">
+        <button
+          className={`
+            relative mb-24 flex flex-row rounded bg-slate-600 px-20 py-4 transition-colors
+            hover:bg-slate-500
+          `}
+          onClick={async (event) => {
+            event.preventDefault();
+            signIn("boxyhq-saml", {}, { tenant, product });
+          }}
+        >
+          Get Started
           <div
             className={`
-              relative flex flex-row rounded bg-slate-600 px-20 py-4 transition-colors
-              hover:bg-slate-500
+              absolute right-6 size-4 translate-y-1 rotate-45 border-r-2 border-t-2 border-slate-200
             `}
-          >
-            Get Started
-            <div
-              className={`
-                absolute right-6 size-4 translate-y-1 rotate-45 border-r-2 border-t-2
-                border-slate-200
-              `}
-            />
-          </div>
-        </Link>
+          />
+        </button>
         <div className="flex w-full flex-row items-center justify-center gap-4">
           <Image
             src={gud}
@@ -55,7 +65,7 @@ export default function Home() {
           Games offered:
         </h2>
         <div className="flex flex-row flex-wrap items-center justify-center gap-4">
-          <div className="h-40 rounded bg-slate-900 p-4">
+          <div className="h-40 w-64 max-w-full rounded bg-slate-900 p-4">
             <Image
               src={minecraft}
               alt="Minecraft"
@@ -65,25 +75,36 @@ export default function Home() {
               `}
             />
           </div>
+          <div className="h-40 w-64 max-w-full rounded bg-slate-900">
+            <div
+              className={`
+                w-64 max-w-full text-center leading-[10rem] brightness-75 transition-[filter]
+                hover:brightness-100 hover:grayscale-0
+              `}
+            >
+              And more...
+            </div>
+          </div>
         </div>
       </div>
       <div className="flex w-full items-center justify-center">
-        <Link href={"/signup"} className="mb-20">
+        <button
+          className={`
+            relative mb-20 flex flex-row rounded bg-slate-600 px-20 py-4 transition-colors
+            hover:bg-slate-500
+          `}
+          onClick={async (event) => {
+            event.preventDefault();
+            signIn("boxyhq-saml", {}, { tenant, product });
+          }}
+        >
+          Get Started
           <div
             className={`
-              relative flex flex-row rounded bg-slate-600 px-20 py-4 transition-colors
-              hover:bg-slate-500
+              absolute right-6 size-4 translate-y-1 rotate-45 border-r-2 border-t-2 border-slate-200
             `}
-          >
-            Get Started
-            <div
-              className={`
-                absolute right-6 size-4 translate-y-1 rotate-45 border-r-2 border-t-2
-                border-slate-200
-              `}
-            />
-          </div>
-        </Link>
+          />
+        </button>
       </div>
       <footer
         className={`
@@ -101,7 +122,7 @@ export default function Home() {
           />
         </Link>
 
-        <Link href={"https://chs.chalmers.se"} className="h-16">
+        <Link href={"https://chs.se"} className="h-16">
           <Image
             src={chs}
             alt="Logo for chalmers student union"
