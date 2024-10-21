@@ -1,15 +1,10 @@
-"use client";
-
-import { signIn } from "next-auth/react";
+import { LoginButton } from "@/app/components/login-button";
 import Image from "next/image";
 import Link from "next/link";
 
 import chs from "../public/chs.png";
 import minecraft from "../public/games/minecraft.png";
 import gud from "../public/gud-clean.png";
-
-const tenant = "boxyhq.com";
-const product = "saml-demo.boxyhq.com";
 
 export default function Home() {
   return (
@@ -27,29 +22,7 @@ export default function Home() {
             A part of Chalmers student union
           </p>
         </h1>
-        <button
-          className={`
-            relative mb-24 flex flex-row rounded bg-slate-600 px-20 py-4 transition-colors
-            hover:bg-slate-500
-          `}
-          onClick={async (event) => {
-            event.preventDefault();
-            signIn(
-              "boxyhq-saml",
-              {
-                redirectTo: "http://localhost:3000/games",
-              },
-              { tenant, product },
-            );
-          }}
-        >
-          Get Started
-          <div
-            className={`
-              absolute right-6 size-4 translate-y-1 rotate-45 border-r-2 border-t-2 border-slate-200
-            `}
-          />
-        </button>
+        <LoginButton />
         <div className="flex w-full flex-row items-center justify-center gap-4">
           <Image
             src={gud}
@@ -91,23 +64,7 @@ export default function Home() {
         </div>
       </div>
       <div className="flex w-full items-center justify-center">
-        <button
-          className={`
-            relative mb-20 flex flex-row rounded bg-slate-600 px-20 py-4 transition-colors
-            hover:bg-slate-500
-          `}
-          onClick={async (event) => {
-            event.preventDefault();
-            signIn("boxyhq-saml", {}, { tenant, product });
-          }}
-        >
-          Get Started
-          <div
-            className={`
-              absolute right-6 size-4 translate-y-1 rotate-45 border-r-2 border-t-2 border-slate-200
-            `}
-          />
-        </button>
+        <LoginButton />
       </div>
       <footer
         className={`
