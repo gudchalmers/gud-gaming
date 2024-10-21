@@ -12,16 +12,23 @@ export default function Page() {
         `}
       >
         <h1 className="text-8xl font-black uppercase">Games</h1>
-        
       </div>
 
-      <div className="mx-auto mt-4 flex w-full max-w-3xl flex-col gap-4 p-10">
+      <div className="mx-auto mt-4 flex w-full max-w-3xl flex-col gap-4 p-10 justify-center content-center">
         <p>
           Find the games you want to play in the list below. Some games needs
           your playername for whitelist. You can always come back to this page
           by login in again.
         </p>
-        <details className="rounded border border-slate-800 p-4">
+        <iframe
+          src={process.env.DISCORD_WIDGET}
+          width="350"
+          height="350"
+          allowTransparency={true}
+          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+          className="w-full"
+        />
+        <details className="rounded border border-slate-800 p-4 w-full">
           <summary>Minecraft</summary>
           <p>
             To connect to minecraft visit{" "}
