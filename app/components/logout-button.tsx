@@ -6,7 +6,7 @@ export function LogoutButton() {
   return (
     <button
       className={`
-        relative mb-24 flex flex-row rounded bg-slate-700 px-20 py-4 transition-colors
+        relative flex flex-row rounded bg-slate-700 px-20 py-4 transition-colors
         hover:bg-slate-600
       `}
       onClick={async (event) => {
