@@ -12,8 +12,9 @@
     "fix:eslint": "eslint --fix ."
   },
   "dependencies": {
+    "@libsql/client": "^0.14.0",
     "clsx": "^2.1.1",
-    "drizzle-orm": "^0.36.0",
+    "drizzle-orm": "^0.36.3",
     "next": "15.0.2",
     "next-auth": "^4.24.10",
     "react": "^18",
@@ -28,7 +29,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@typescript-eslint/parser": "^7.18.0",
-    "drizzle-kit": "^0.27.1",
+    "drizzle-kit": "^0.27.2",
     "eslint": "^8.57.1",
     "eslint-config-next": "15.0.2",
     "eslint-plugin-readable-tailwind": "^1.8.0",
