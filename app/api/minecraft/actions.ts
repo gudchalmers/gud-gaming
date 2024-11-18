@@ -5,11 +5,11 @@ interface MojangResponse {
   name: string;
 }
 
-export async function register(prevState: any, formData: FormData) {
+export async function register(prevState, formData: FormData) {
   const username = formData.get("username").toString().toLowerCase();
 
   if (!username) {
-    return { message: "Username is required" };
+    return { message: "Username is required", loading: false};
   }
 
   const response = await fetch(
@@ -17,14 +17,14 @@ export async function register(prevState: any, formData: FormData) {
   );
 
   if (response.status === 404 || !response.ok) {
-    return { message: "Username not found" };
+    return { message: "Username not found", loading: false };
   }
 
   const uuid = ((await response.json()) as MojangResponse).id;
 
   if (!uuid) {
-    return { message: "UUID not found" };
+    return { message: "UUID not found", loading: false };
   }
 
-  return { message: "Saved" };
+  return { message: "Saved", loading: false };
 }

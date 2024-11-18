@@ -7,7 +7,7 @@ import { register } from "../api/minecraft/actions";
 import { cn } from "../lib/cn";
 
 const initialState = {
-  message: "",
+  message: "Save",
   loading: false,
 };
 
@@ -26,10 +26,10 @@ export function MinecraftLogin() {
         id="minecraft-username"
         placeholder="Minecraft Username"
       />
-      <p aria-live="polite">{state?.message}</p>
       <button
         disabled={state?.loading}
         type="submit"
+        aria-live="polite"
         className={cn(`
           flex w-full justify-center rounded bg-slate-700 p-2 text-sm/6 font-semibold text-white
           shadow
@@ -39,7 +39,7 @@ export function MinecraftLogin() {
           hover:bg-slate-500
         `)}
       >
-        Save
+        {state?.message || "Save"}
       </button>
     </Form>
   );
