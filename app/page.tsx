@@ -43,8 +43,9 @@ export default function Home() {
           Games offered:
         </h2>
         <div className="flex flex-row flex-wrap items-center justify-center gap-4">
-          <div className="h-40 w-64 max-w-full rounded bg-slate-900 p-4">
+          <div className="relative h-40 w-64 max-w-full rounded bg-slate-900 p-4">
             <Image
+              width={224}
               src={minecraft}
               alt="Minecraft"
               className={`
@@ -55,6 +56,7 @@ export default function Home() {
           </div>
           <div className="h-40 w-64 max-w-full rounded bg-slate-900 p-4">
             <Image
+              width={224}
               src={valheim}
               alt="Valheim"
               className={`
@@ -65,6 +67,7 @@ export default function Home() {
           </div>
           <div className="h-40 w-64 max-w-full rounded bg-slate-900 p-4">
             <Image
+              width={224}
               src={factorio}
               alt="Factorio"
               className={`
