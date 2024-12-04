@@ -1,4 +1,5 @@
 import { auth } from "@/app/lib/auth";
+import type { Route } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
@@ -53,7 +54,11 @@ export default async function Page() {
             <li>
               Join{" "}
               <Link
-                href={process.env.DISCORD_INVITE ?? ""}
+                href={
+                  process.env.DISCORD_INVITE
+                    ? (process.env.DISCORD_INVITE as Route)
+                    : "#"
+                }
                 className={`
                   underline
                   hover:text-white
