@@ -3,11 +3,6 @@
 import { signIn } from "next-auth/react";
 
 export function LoginButton() {
-  const tenant = "chalmers.se";
-  const product = "GUD Gaming";
-  // const tenant = "boxyhq.com";
-  // const product = "saml-demo.boxyhq.com";
-
   return (
     <button
       className={`
@@ -17,11 +12,10 @@ export function LoginButton() {
       onClick={async (event) => {
         event.preventDefault();
         signIn(
-          "boxyhq-saml",
+          "MicrosoftEntraID",
           {
             callbackUrl: "/games",
           },
-          { tenant, product },
         );
       }}
     >
