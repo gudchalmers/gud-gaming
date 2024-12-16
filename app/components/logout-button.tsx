@@ -1,5 +1,3 @@
-"use client";
-
 import { signOut } from "@/auth";
 
 export function LogoutButton() {
@@ -10,8 +8,9 @@ export function LogoutButton() {
         hover:bg-slate-600
       `}
       onClick={async (event) => {
+        "use server";
         event.preventDefault();
-        signOut();
+        await signOut();
       }}
     >
       Logout
