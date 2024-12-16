@@ -10,7 +10,9 @@ export function LogoutButton() {
       onClick={async (event) => {
         "use server";
         event.preventDefault();
-        await signOut();
+        await signOut({
+          redirectTo: "/",
+        });
       }}
     >
       Logout

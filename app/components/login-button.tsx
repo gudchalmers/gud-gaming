@@ -5,7 +5,7 @@ export function LoginButton() {
     <form
       action={async () => {
         "use server";
-        await signIn("MicrosoftEntraID", {
+        await signIn("microsoft-entra-id", {
           callbackUrl: "/games",
         });
       }}
