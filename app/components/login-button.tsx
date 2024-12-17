@@ -6,7 +6,7 @@ export function LoginButton() {
       action={async () => {
         "use server";
         await signIn("microsoft-entra-id", {
-          callbackUrl: "/games",
+          redirectTo: "/games",
         });
       }}
     >
