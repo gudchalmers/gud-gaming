@@ -8,6 +8,7 @@ import { LogoutButton } from "../components/logout-button";
 import { MinecraftLogin } from "../components/minecraft-login";
 import { db } from "../db/drizzle";
 import { users } from "../db/schema";
+import { eq } from "drizzle-orm";
 
 export default async function Page() {
   const session = await auth();
@@ -17,14 +18,25 @@ export default async function Page() {
   }
 
   const user = await db.query.users.findFirst({
-    with: { samlid: session.user.id },
+    where: eq(users.email, session.user.email),
   });
 
   if (!user) {
-    await db.insert(users).values({
-      samlid: session.user.id,
-    });
+    await db
+      .insert(users)
+      .values({
+        email: session.user.email,
+      })
+      .onConflictDoNothing();
   }
+
+  console.log(user);
+
+  const minecraft = await db.query.minecraft.findFirst({
+    where: eq(users.id, user.id),
+  });
+
+  console.log(minecraft?.username);
 
   return (
     <>
@@ -70,7 +82,7 @@ export default async function Page() {
         </details>
         <details className="w-full space-y-4 rounded border border-slate-800 p-4">
           <summary>Minecraft</summary>
-          <MinecraftLogin />
+          <MinecraftLogin username={minecraft?.username}/>
           <p>
             And then connect to <u>mc.chs.se</u> <CopyText text="mc.chs.se" />
           </p>
@@ -83,7 +95,7 @@ export default async function Page() {
           <summary>Valheim</summary>
           <p></p>
         </details>
-        <p>Missing any game? Request it on the discord!</p>
+        <p>Missing any game? Request it on discord!</p>
       </div>
     </>
   );

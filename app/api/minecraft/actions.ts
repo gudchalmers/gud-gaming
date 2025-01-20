@@ -1,8 +1,9 @@
 "use server";
 
 import { db } from "@/app/db/drizzle";
-import { minecraft } from "@/app/db/schema";
+import { minecraft, users } from "@/app/db/schema";
 import { auth } from "@/auth";
+import { eq } from "drizzle-orm";
 
 interface MojangResponse {
   id: string;
@@ -22,24 +23,42 @@ export async function register(prevState, formData: FormData) {
   );
 
   if (response.status === 404 || !response.ok) {
-    return { message: "Username not found", loading: false };
+    return { message: "Username not found", loading: false, username };
   }
 
   const uuid = ((await response.json()) as MojangResponse).id;
 
   if (!uuid) {
-    return { message: "UUID not found", loading: false };
+    return { message: "UUID not found", loading: false, username };
   }
 
-  if (!session.user?.id) {
-    return { message: "Access denied", loading: false };
+  if (!session.user?.email) {
+    return { message: "Access denied", loading: false, username };
   }
 
   const userId = (
     await db.query.users.findFirst({
-      with: { samlid: session.user.id },
+      where: eq(users.email, session.user.email),
     })
   ).id;
+
+  // Check if the user already has a Minecraft account
+  const existing = await db.query.minecraft.findFirst({
+    where: eq(minecraft.userId, userId),
+  });
+
+  if (existing && existing.uuid === uuid) {
+    return { message: "Already linked", loading: false, username };
+  }
+
+  // If the user already has a Minecraft account, update it
+  if (existing) {
+    await db
+      .update(minecraft)
+      .set({ username, uuid })
+      .where(eq(minecraft.userId, userId));
+    return { message: "Updated", loading: false, username };
+  }
 
   await db.insert(minecraft).values({
     userId: userId,
@@ -47,5 +66,5 @@ export async function register(prevState, formData: FormData) {
     uuid,
   });
 
-  return { message: "Saved", loading: false };
+  return { message: "Saved", loading: false, username };
 }

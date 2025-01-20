@@ -1,24 +1,15 @@
-import { relations } from "drizzle-orm";
 import { int, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 export const users = sqliteTable("users", {
-  id: int().primaryKey({ autoIncrement: true }),
-  samlid: text().unique().notNull(),
+  id: int().primaryKey(),
+  email: text().unique().notNull(),
 });
 
 export const minecraft = sqliteTable("minecraft", {
-  id: int().primaryKey({ autoIncrement: true }),
+  id: int().primaryKey(),
   userId: int()
-    .unique()
-    .notNull()
-    .references(() => users.id, { onDelete: "cascade" }),
+    .references(() => users.id)
+    .notNull(),
   username: text().notNull(),
   uuid: text().notNull(),
 });
-
-export const minecraftRelations = relations(minecraft, ({ one }) => ({
-  user: one(users, {
-    fields: [minecraft.userId],
-    references: [users.id],
-  }),
-}));

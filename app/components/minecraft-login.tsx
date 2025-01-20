@@ -11,7 +11,7 @@ const initialState = {
   loading: false,
 };
 
-export function MinecraftLogin() {
+export function MinecraftLogin({ username }: { username?: string }) {
   const [state, formAction] = useActionState(register, initialState);
 
   return (
@@ -25,19 +25,32 @@ export function MinecraftLogin() {
         name="username"
         id="minecraft-username"
         placeholder="Minecraft Username"
+        defaultValue={state?.username || username || ""}
       />
       <button
         disabled={state?.loading}
         type="submit"
         aria-live="polite"
-        className={cn(`
-          flex w-full justify-center rounded bg-slate-700 p-2 text-sm/6 font-semibold text-white
-          shadow
-          disabled:cursor-wait disabled:bg-slate-800 disabled:text-slate-600
-          focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
-          focus-visible:outline-slate-600
-          hover:bg-slate-500
-        `)}
+        className={cn(
+          `
+            flex w-full justify-center rounded bg-slate-700 p-2 text-sm/6 font-semibold text-white
+            shadow transition-colors
+            disabled:cursor-wait disabled:bg-slate-800 disabled:text-slate-600
+            focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+            focus-visible:outline-slate-600
+            hover:bg-slate-500
+          `,
+          state?.loading &&
+            `
+              cursor-wait bg-slate-800 text-slate-600
+              hover:bg-slate-700
+            `,
+          (state?.message === "Saved" || state?.message === "Updated") &&
+            `
+              bg-lime-700
+              hover:bg-lime-600
+            `,
+        )}
       >
         {state?.message || "Save"}
       </button>
