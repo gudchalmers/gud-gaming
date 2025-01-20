@@ -6,12 +6,24 @@ import { redirect } from "next/navigation";
 import { CopyText } from "../components/copy-text";
 import { LogoutButton } from "../components/logout-button";
 import { MinecraftLogin } from "../components/minecraft-login";
+import { db } from "../db/drizzle";
+import { users } from "../db/schema";
 
 export default async function Page() {
   const session = await auth();
 
   if (!session) {
     redirect("/");
+  }
+
+  const user = await db.query.users.findFirst({
+    with: { samlid: session.user.id },
+  });
+
+  if (!user) {
+    await db.insert(users).values({
+      samlid: session.user.id,
+    });
   }
 
   return (
@@ -39,26 +51,13 @@ export default async function Page() {
           your playername for whitelist. You can always come back to this page
           by login in again.
         </p>
-        {/* <iframe
-          src={process.env.DISCORD_WIDGET}
-          width="350"
-          height="350"
-          allowTransparency={true}
-          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-          className="w-full"
-        /> */}
         <details className="w-full space-y-4 rounded border border-slate-800 p-4">
           <summary>Discord</summary>
-
           <ol className="list-inside list-decimal">
             <li>
               Join{" "}
               <Link
-                href={
-                  process.env.DISCORD_INVITE
-                    ? (process.env.DISCORD_INVITE as Route)
-                    : "#"
-                }
+                href={process.env.DISCORD_INVITE as Route}
                 className={`
                   underline
                   hover:text-white
