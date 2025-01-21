@@ -1,4 +1,5 @@
 import { auth } from "@/auth";
+import { eq } from "drizzle-orm";
 import type { Route } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -7,8 +8,7 @@ import { CopyText } from "../components/copy-text";
 import { LogoutButton } from "../components/logout-button";
 import { MinecraftLogin } from "../components/minecraft-login";
 import { db } from "../db/drizzle";
-import { users } from "../db/schema";
-import { eq } from "drizzle-orm";
+import { minecraft, users } from "../db/schema";
 
 export default async function Page() {
   const session = await auth();
@@ -30,13 +30,14 @@ export default async function Page() {
       .onConflictDoNothing();
   }
 
-  console.log(user);
-
-  const minecraft = await db.query.minecraft.findFirst({
-    where: eq(users.id, user.id),
-  });
-
-  console.log(minecraft?.username);
+  let username: string;
+  if (user?.id) {
+    username = (
+      await db.query.minecraft.findFirst({
+        where: eq(minecraft.userId, user.id),
+      })
+    )?.username;
+  }
 
   return (
     <>
@@ -51,9 +52,7 @@ export default async function Page() {
       </div>
 
       <div
-        className={`
-          mx-auto mt-4 flex w-full max-w-3xl flex-col content-center justify-center gap-4 p-10
-        `}
+        className={`mx-auto mt-4 flex w-full max-w-3xl flex-col place-content-center gap-4 p-10`}
       >
         <h2 className="text-xl font-semibold">
           Welcome {session?.user?.name}!
@@ -69,7 +68,7 @@ export default async function Page() {
             <li>
               Join{" "}
               <Link
-                href={process.env.DISCORD_INVITE as Route}
+                href={(process.env.DISCORD_INVITE ?? "") as Route}
                 className={`
                   underline
                   hover:text-white
@@ -82,7 +81,7 @@ export default async function Page() {
         </details>
         <details className="w-full space-y-4 rounded border border-slate-800 p-4">
           <summary>Minecraft</summary>
-          <MinecraftLogin username={minecraft?.username}/>
+          <MinecraftLogin username={username ?? undefined} />
           <p>
             And then connect to <u>mc.chs.se</u> <CopyText text="mc.chs.se" />
           </p>
