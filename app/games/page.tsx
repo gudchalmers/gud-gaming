@@ -88,11 +88,11 @@ export default async function Page() {
         </details>
         <details className="w-full space-y-4 rounded border border-slate-800 p-4">
           <summary>Factorio</summary>
-          <p></p>
+          <p>WIP</p>
         </details>
         <details className="w-full space-y-4 rounded border border-slate-800 p-4">
           <summary>Valheim</summary>
-          <p></p>
+          <p>WIP</p>
         </details>
         <p>Missing any game? Request it on discord!</p>
       </div>
