@@ -3,7 +3,15 @@
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
-export function CopyText({ text }: { text: string }) {
+export function CopyText({
+  text,
+  displayText,
+}: {
+  text: string;
+  displayText?: string;
+}) {
+  // use text as displayText if not provided
+  displayText = displayText || text;
   const [showCheckmark, setShowCheckmark] = useState(false);
   const checkmark = (
     <path
@@ -22,6 +30,8 @@ export function CopyText({ text }: { text: string }) {
   };
 
   return (
+    <>
+      <u>{displayText}</u>
       <button
         className={`group inline align-text-bottom`}
         onClick={handleClick}
@@ -49,5 +59,6 @@ export function CopyText({ text }: { text: string }) {
         </svg>
         <Toaster />
       </button>
+    </>
   );
 }

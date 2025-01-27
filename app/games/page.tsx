@@ -83,18 +83,21 @@ export default async function Page() {
           <summary>Minecraft</summary>
           <MinecraftLogin username={username ?? undefined} />
           <p>
-            And then connect to <u>mc.chs.se</u> <CopyText text="mc.chs.se" />
+            And then connect to <CopyText text="mc.chs.se" />
           </p>
         </details>
         <details className="w-full space-y-4 rounded border border-slate-800 p-4">
           <summary>Factorio</summary>
-          <p>WIP</p>
+          <p>
+            Connect to <CopyText text="gaming.chs.se" /> with password{" "}
+            <CopyText text="chalmers" />
+          </p>
         </details>
         <details className="w-full space-y-4 rounded border border-slate-800 p-4">
           <summary>Valheim</summary>
           <p>WIP</p>
         </details>
-        <p>Missing any game? Request it on discord!</p>
+        <p>Missing any game? Something broken? Contact us on discord! </p>
       </div>
     </>
   );

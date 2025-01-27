@@ -66,5 +66,7 @@ export async function register(prevState, formData: FormData) {
     uuid,
   });
 
+  console.log("Registered user with uuid", uuid);
+
   return { message: "Saved", loading: false, username };
 }
