@@ -5,7 +5,8 @@ import { minecraft } from "@/app/db/schema";
 import { eq } from "drizzle-orm";
 
 export async function POST(request: Request) {
-  const { uuid } = await request.json();
+  let { uuid } = await request.json();
+  uuid = uuid.replace(/-/g, "").toLowerCase();
 
   if (!uuid) {
     return new Response("Missing uuid", { status: 400 });

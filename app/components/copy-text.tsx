@@ -33,7 +33,7 @@ export function CopyText({
     <>
       <u>{displayText}</u>
       <button
-        className={`group inline align-text-bottom`}
+        className={`group ml-px inline align-text-bottom`}
         onClick={handleClick}
       >
         <svg
