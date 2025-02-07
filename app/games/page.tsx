@@ -62,7 +62,7 @@ export default async function Page() {
           your playername for whitelist. You can always come back to this page
           by login in again.
         </p>
-        <details className="w-full space-y-4 rounded border border-slate-800 p-4">
+        <details className="w-full space-y-4 rounded border border-slate-800 p-4" open>
           <summary>Discord</summary>
           <ol className="list-inside list-decimal">
             <li>
