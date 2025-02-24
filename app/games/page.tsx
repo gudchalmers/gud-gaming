@@ -62,7 +62,10 @@ export default async function Page() {
           your playername for whitelist. You can always come back to this page
           by login in again.
         </p>
-        <details className="w-full space-y-4 rounded border border-slate-800 p-4" open>
+        <details
+          className="w-full space-y-4 rounded border border-slate-800 p-4"
+          open
+        >
           <summary>Discord</summary>
           <ol className="list-inside list-decimal">
             <li>
@@ -97,7 +100,19 @@ export default async function Page() {
           <summary>Valheim</summary>
           <p>WIP</p>
         </details>
-        <p>Missing any game? Something broken? Contact us on discord! </p>
+        <p>
+          Missing any game? Something broken? Contact us on{" "}
+          <Link
+            href={(process.env.DISCORD_INVITE ?? "") as Route}
+            className={`
+              underline
+              hover:text-white
+            `}
+          >
+            Discord
+          </Link>
+          !
+        </p>
       </div>
     </>
   );
