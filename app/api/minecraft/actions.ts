@@ -18,6 +18,10 @@ export async function register(prevState, formData: FormData) {
     return { message: "Username is required", loading: false };
   }
 
+  if (!session.user?.email) {
+    return { message: "Access denied", loading: false, username };
+  }
+
   const response = await fetch(
     `https://api.mojang.com/users/profiles/minecraft/${username}`,
   );
@@ -32,10 +36,6 @@ export async function register(prevState, formData: FormData) {
     return { message: "UUID not found", loading: false, username };
   }
 
-  if (!session.user?.email) {
-    return { message: "Access denied", loading: false, username };
-  }
-
   const userId = (
     await db.query.users.findFirst({
       where: eq(users.email, session.user.email),
@@ -48,6 +48,9 @@ export async function register(prevState, formData: FormData) {
   });
 
   if (existing && existing.uuid === uuid) {
+
+    console.log("Already linked user with uuid", uuid);
+
     return { message: "Already linked", loading: false, username };
   }
 
@@ -57,6 +60,9 @@ export async function register(prevState, formData: FormData) {
       .update(minecraft)
       .set({ username, uuid })
       .where(eq(minecraft.userId, userId));
+
+    console.log("Updated user with uuid", uuid);
+    
     return { message: "Updated", loading: false, username };
   }
 
