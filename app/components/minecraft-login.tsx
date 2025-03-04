@@ -6,10 +6,7 @@ import { useActionState } from "react";
 import { register } from "../api/minecraft/actions";
 import { cn } from "../lib/cn";
 
-const initialState = {
-  message: "Save",
-  loading: false,
-};
+const initialState = { message: "Save", loading: false };
 
 export function MinecraftLogin({ username }: { username?: string }) {
   const [state, formAction] = useActionState(register, initialState);
