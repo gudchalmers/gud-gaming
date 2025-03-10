@@ -97,9 +97,16 @@ export default async function Page() {
           </p>
         </details>
         <details className="w-full space-y-4 rounded border border-slate-800 p-4">
+          <summary>OpenTTD</summary>
+          <p>
+            Connect to <CopyText text="gaming.chs.se" /> with password{" "}
+            <CopyText text="chalmers" />
+          </p>
+        </details>
+        {/* <details className="w-full space-y-4 rounded border border-slate-800 p-4">
           <summary>Valheim</summary>
           <p>WIP</p>
-        </details>
+        </details> */}
         <p>
           Missing any game? Something broken? Contact us on{" "}
           <Link

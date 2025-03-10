@@ -5,7 +5,8 @@ import Link from "next/link";
 import chs from "../public/chs.png";
 import factorio from "../public/games/factorio.png";
 import minecraft from "../public/games/minecraft.png";
-import valheim from "../public/games/valheim.png";
+import openttd from "../public/games/openttd.svg";
+// import valheim from "../public/games/valheim.png";
 import gud from "../public/gud-clean.png";
 
 export default function Home() {
@@ -57,8 +58,8 @@ export default function Home() {
           <div className="h-40 w-64 max-w-full rounded bg-slate-900 p-4">
             <Image
               width={224}
-              src={valheim}
-              alt="Valheim"
+              src={factorio}
+              alt="Factorio"
               className={`
                 size-full object-contain brightness-75 grayscale transition-[filter]
                 hover:brightness-100 hover:grayscale-0
@@ -68,14 +69,25 @@ export default function Home() {
           <div className="h-40 w-64 max-w-full rounded bg-slate-900 p-4">
             <Image
               width={224}
-              src={factorio}
-              alt="Factorio"
+              src={openttd}
+              alt="OpenTTD"
               className={`
                 size-full object-contain brightness-75 grayscale transition-[filter]
                 hover:brightness-100 hover:grayscale-0
               `}
             />
           </div>
+          {/* <div className="h-40 w-64 max-w-full rounded bg-slate-900 p-4">
+            <Image
+              width={224}
+              src={valheim}
+              alt="Valheim"
+              className={`
+                size-full object-contain brightness-75 grayscale transition-[filter]
+                hover:brightness-100 hover:grayscale-0
+              `}
+            />
+          </div> */}
           <div className="h-40 w-64 max-w-full rounded bg-slate-900">
             <div
               className={`
