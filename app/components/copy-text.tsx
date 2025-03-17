@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 export function CopyText({
@@ -21,7 +21,7 @@ export function CopyText({
     />
   );
 
-  const handleClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     navigator.clipboard.writeText(text);
     setShowCheckmark(true);

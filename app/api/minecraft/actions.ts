@@ -48,7 +48,6 @@ export async function register(prevState, formData: FormData) {
   });
 
   if (existing && existing.uuid === uuid) {
-
     console.log("Already linked user with uuid", uuid);
 
     return { message: "Already linked", loading: false, username };
@@ -62,7 +61,7 @@ export async function register(prevState, formData: FormData) {
       .where(eq(minecraft.userId, userId));
 
     console.log("Updated user with uuid", uuid);
-    
+
     return { message: "Updated", loading: false, username };
   }
 

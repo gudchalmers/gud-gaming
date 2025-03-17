@@ -18,9 +18,9 @@ export async function POST(request: Request) {
 
   if (!minecraft_user) {
     console.log("Denied user with uuid:", uuid);
-    return Response.json({ status: "denied"});
+    return Response.json({ status: "denied" });
   } else {
     console.log("Accepted user with uuid:", uuid);
-    return Response.json({ status: "success"});
+    return Response.json({ status: "success" });
   }
 }
