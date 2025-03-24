@@ -15,9 +15,9 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
-    "@libsql/client": "^0.15.0",
+    "@libsql/client": "^0.15.1",
     "clsx": "^2.1.1",
-    "drizzle-orm": "^0.40.0",
+    "drizzle-orm": "^0.41.0",
     "next": "15.2.3",
     "next-auth": "^5.0.0-beta.25",
     "react": "^19.0.0",
