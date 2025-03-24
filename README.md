@@ -6,7 +6,7 @@ G.U.D:s platform for game servers. It uses Chalmers oauth for authentication and
 
 1. `npm install`
 2. `npm run db:migrate`
-2. `npm run dev`
+3. `npm run dev`
 
 ## Production
 
