@@ -88,6 +88,18 @@ export default async function Page() {
           <p>
             And then connect to <CopyText text="mc.chs.se" />
           </p>
+          <p>
+            A map is available at{" "}
+            <Link
+              href="https://map.mc.chs.se/"
+              className={`
+                underline
+                hover:text-white
+              `}
+            >
+              map.mc.chs.se
+            </Link>
+          </p>
         </details>
         <details className="w-full space-y-4 rounded border border-slate-800 p-4">
           <summary>Factorio</summary>
