@@ -10,4 +10,6 @@ G.U.D:s platform for game servers. It uses Chalmers oauth for authentication and
 
 ## Production
 
-Use the docker image
+Use the docker image. There is no automation for the running `db:migrate` so run that manually if you change the database schema.
+
+The production is otherwise automated.
