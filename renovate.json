@@ -8,7 +8,12 @@
   "packageRules": [
     {
       "matchDepTypes": ["devDependencies"],
-      "matchPackageNames": ["lint", "prettier"],
+      "matchPackageNames": [
+        "eslint",
+        "prettier",
+        "typescript-eslint",
+        "@eslint/js"
+      ],
       "automerge": true
     }
   ]
