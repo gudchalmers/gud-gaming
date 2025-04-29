@@ -12,7 +12,8 @@
         "eslint",
         "prettier",
         "typescript-eslint",
-        "@eslint/js"
+        "@eslint/js",
+        "@types"
       ],
       "automerge": true
     }
