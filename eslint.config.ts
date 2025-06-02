@@ -5,16 +5,18 @@ import { globalIgnores } from "eslint/config";
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
+  recommendedConfig: js.configs.recommended,
 });
 
 export default [
   ...compat.config({
+    parser: "@typescript-eslint/parser",
     extends: [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      // "plugin:better-tailwindcss/recommended-warn",
       "next/core-web-vitals",
       "next/typescript",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:tailwindcss/recommended",
-      "plugin:readable-tailwind/warning",
     ],
     overrides: [
       {
@@ -22,17 +24,20 @@ export default [
         parser: "@typescript-eslint/parser",
       },
     ],
-    parser: "@typescript-eslint/parser",
+    settings: {
+      "better-tailwindcss": {
+        tailwindConfig: "tailwind.config.ts",
+      },
+    },
     parserOptions: {
       ecmaFeatures: {
         jsx: true,
       },
       ecmaVersion: "latest",
     },
-    plugins: ["@typescript-eslint", "readable-tailwind"],
+    plugins: ["@typescript-eslint", "better-tailwindcss"],
     rules: {
-      "tailwindcss/classnames-order": "off",
-      "readable-tailwind/multiline": [
+      "better-tailwindcss/multiline": [
         "warn",
         {
           group: "newLine",
