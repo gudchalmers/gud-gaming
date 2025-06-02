@@ -33,7 +33,7 @@ export function MinecraftLogin({ username }: { username?: string }) {
             flex w-full justify-center rounded bg-slate-700 p-2 text-sm/6 font-semibold text-white
             shadow transition-colors
             hover:bg-slate-500
-            focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+            focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2
             focus-visible:outline-slate-600
             disabled:cursor-wait disabled:bg-slate-800 disabled:text-slate-600
           `,

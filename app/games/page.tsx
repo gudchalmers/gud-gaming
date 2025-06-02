@@ -43,7 +43,7 @@ export default async function Page() {
     <>
       <div
         className={`
-          flex size-full flex-col items-center justify-center bg-gradient-to-r from-slate-950
+          flex size-full flex-col items-center justify-center bg-linear-to-r from-slate-950
           to-slate-800 py-20
         `}
       >
@@ -63,7 +63,7 @@ export default async function Page() {
           by login in again.
         </p>
         <details
-          className="w-full space-y-4 rounded border border-slate-800 p-4"
+          className="w-full space-y-4 rounded-sm border border-slate-800 p-4"
           open
         >
           <summary>Discord</summary>
@@ -82,7 +82,7 @@ export default async function Page() {
             </li>
           </ol>
         </details>
-        <details className="w-full space-y-4 rounded border border-slate-800 p-4">
+        <details className="w-full space-y-4 rounded-sm border border-slate-800 p-4">
           <summary>Minecraft</summary>
           <MinecraftLogin username={username ?? undefined} />
           <p>
@@ -101,21 +101,21 @@ export default async function Page() {
             </Link>
           </p>
         </details>
-        <details className="w-full space-y-4 rounded border border-slate-800 p-4">
+        <details className="w-full space-y-4 rounded-sm border border-slate-800 p-4">
           <summary>Factorio</summary>
           <p>
             Connect to <CopyText text="gaming.chs.se" /> with password{" "}
             <CopyText text="chalmers" />
           </p>
         </details>
-        <details className="w-full space-y-4 rounded border border-slate-800 p-4">
+        <details className="w-full space-y-4 rounded-sm border border-slate-800 p-4">
           <summary>OpenTTD</summary>
           <p>
             Connect to <CopyText text="gaming.chs.se" /> with password{" "}
             <CopyText text="chalmers" />
           </p>
         </details>
-        {/* <details className="w-full space-y-4 rounded border border-slate-800 p-4">
+        {/* <details className="w-full space-y-4 rounded-sm border border-slate-800 p-4">
           <summary>Valheim</summary>
           <p>WIP</p>
         </details> */}

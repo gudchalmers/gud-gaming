@@ -26,7 +26,7 @@ export default [
     ],
     settings: {
       "better-tailwindcss": {
-        tailwindConfig: "tailwind.config.ts",
+        entryPoint: "app/global.css",
       },
     },
     parserOptions: {

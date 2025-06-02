@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <div
         className={`
-          flex size-full flex-col items-center justify-center bg-gradient-to-r from-slate-950
+          flex size-full flex-col items-center justify-center bg-linear-to-r from-slate-950
           to-slate-800 pb-20 pt-36
         `}
       >
@@ -44,7 +44,7 @@ export default function Home() {
           Games offered:
         </h2>
         <div className="flex flex-row flex-wrap items-center justify-center gap-4">
-          <div className="relative h-40 w-64 max-w-full rounded bg-slate-900 p-4">
+          <div className="relative h-40 w-64 max-w-full rounded-sm bg-slate-900 p-4">
             <Image
               width={224}
               src={minecraft}
@@ -55,7 +55,7 @@ export default function Home() {
               `}
             />
           </div>
-          <div className="h-40 w-64 max-w-full rounded bg-slate-900 p-4">
+          <div className="h-40 w-64 max-w-full rounded-sm bg-slate-900 p-4">
             <Image
               width={224}
               src={factorio}
@@ -66,7 +66,7 @@ export default function Home() {
               `}
             />
           </div>
-          <div className="h-40 w-64 max-w-full rounded bg-slate-900 p-4">
+          <div className="h-40 w-64 max-w-full rounded-sm bg-slate-900 p-4">
             <Image
               width={224}
               src={openttd}
@@ -77,7 +77,7 @@ export default function Home() {
               `}
             />
           </div>
-          {/* <div className="h-40 w-64 max-w-full rounded bg-slate-900 p-4">
+          {/* <div className="h-40 w-64 max-w-full rounded-sm bg-slate-900 p-4">
             <Image
               width={224}
               src={valheim}
@@ -88,10 +88,10 @@ export default function Home() {
               `}
             />
           </div> */}
-          <div className="h-40 w-64 max-w-full rounded bg-slate-900">
+          <div className="h-40 w-64 max-w-full rounded-sm bg-slate-900">
             <div
               className={`
-                w-64 max-w-full text-center leading-[10rem] brightness-75 transition-[filter]
+                w-64 max-w-full text-center leading-40 brightness-75 transition-[filter]
                 hover:brightness-100 hover:grayscale-0
               `}
             >
