@@ -15,7 +15,7 @@ export default function Home() {
       <div
         className={`
           flex size-full flex-col items-center justify-center bg-linear-to-r from-slate-950
-          to-slate-800 pb-20 pt-36
+          to-slate-800 pt-36 pb-20
         `}
       >
         <h1 className="m-20">
@@ -40,7 +40,7 @@ export default function Home() {
         </div>
       </div>
       <div className="mt-8 w-full p-10">
-        <h2 className="mb-8 text-center text-3xl uppercase tracking-widest text-slate-300">
+        <h2 className="mb-8 text-center text-3xl tracking-widest text-slate-300 uppercase">
           Games offered:
         </h2>
         <div className="flex flex-row flex-wrap items-center justify-center gap-4">

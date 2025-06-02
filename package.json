@@ -11,10 +11,8 @@
     "lint:next": "next lint",
     "lint:tsc": "tsc --noEmit",
     "lint:eslint": "eslint .",
-    "lint:prettier": "prettier --check .",
     "fix": "run-s fix:**",
     "fix:eslint": "eslint --fix .",
-    "fix:prettier": "prettier --write .",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio"
@@ -33,7 +31,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.28.0",
-    "@ianvs/prettier-plugin-sort-imports": "^4.4.2",
     "@tailwindcss/postcss": "^4.1.8",
     "@types/node": "^22",
     "@types/react": "^19.0.0",
@@ -41,12 +38,11 @@
     "@typescript-eslint/parser": "^8.33.1",
     "drizzle-kit": "^0.31.1",
     "eslint": "^9.22.0",
-    "eslint-config-next": "15.3.3",
-    "eslint-plugin-better-tailwindcss": "^3.0.0",
+    "eslint-config-next": "^15.3.3",
+    "eslint-plugin-better-tailwindcss": "^3.1.0",
     "jiti": "^2.4.2",
     "npm-run-all2": "^8.0.0",
     "postcss": "^8",
-    "prettier": "^3.4.2",
     "tailwindcss": "^4.1.8",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.26.1"
