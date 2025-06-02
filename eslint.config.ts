@@ -14,7 +14,7 @@ export default [
     extends: [
       "eslint:recommended",
       "plugin:@typescript-eslint/recommended",
-      // "plugin:better-tailwindcss/recommended-warn",
+      "plugin:better-tailwindcss/recommended-warn",
       "next/core-web-vitals",
       "next/typescript",
     ],
@@ -26,7 +26,7 @@ export default [
     ],
     settings: {
       "better-tailwindcss": {
-        entryPoint: "app/global.css",
+        entryPoint: "app/globals.css",
       },
     },
     parserOptions: {
