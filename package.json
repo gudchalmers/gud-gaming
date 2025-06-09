@@ -11,13 +11,16 @@
     "lint:next": "next lint",
     "lint:tsc": "tsc --noEmit",
     "lint:eslint": "eslint .",
+    "lint:prettier": "prettier --check .",
     "fix": "run-s fix:**",
     "fix:eslint": "eslint --fix .",
+    "fix:prettier": "prettier --write .",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.2",
     "@libsql/client": "^0.15.1",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.44.0",

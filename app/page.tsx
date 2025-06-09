@@ -21,17 +21,11 @@ export default function Home() {
         <h1 className="m-20">
           <p className="text-3xl">G.U.D.</p>
           <p className="text-8xl font-black uppercase">Gaming</p>
-          <p className="text-center text-2xl text-slate-300">
-            A part of Chalmers student union
-          </p>
+          <p className="text-center text-2xl text-slate-300">A part of Chalmers student union</p>
         </h1>
         <LoginButton />
         <div className="flex w-full flex-row items-center justify-center gap-4">
-          <Image
-            src={gud}
-            alt="Logo for G.U.D."
-            className="h-16 w-fit object-contain"
-          />
+          <Image src={gud} alt="Logo for G.U.D." className="h-16 w-fit object-contain" />
           <Image
             src={chs}
             alt="Logo for chalmers student union"

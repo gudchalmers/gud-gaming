@@ -54,18 +54,12 @@ export default async function Page() {
       <div
         className={`mx-auto mt-4 flex w-full max-w-3xl flex-col place-content-center gap-4 p-10`}
       >
-        <h2 className="text-xl font-semibold">
-          Welcome {session?.user?.name}!
-        </h2>
+        <h2 className="text-xl font-semibold">Welcome {session?.user?.name}!</h2>
         <p>
-          Find the games you want to play in the list below. Some games needs
-          your playername for whitelist. You can always come back to this page
-          by login in again.
+          Find the games you want to play in the list below. Some games needs your playername for
+          whitelist. You can always come back to this page by login in again.
         </p>
-        <details
-          className="w-full space-y-4 rounded-sm border border-slate-800 p-4"
-          open
-        >
+        <details className="w-full space-y-4 rounded-sm border border-slate-800 p-4" open>
           <summary>Discord</summary>
           <ol className="list-inside list-decimal">
             <li>
@@ -104,15 +98,13 @@ export default async function Page() {
         <details className="w-full space-y-4 rounded-sm border border-slate-800 p-4">
           <summary>Factorio</summary>
           <p>
-            Connect to <CopyText text="gaming.chs.se" /> with password{" "}
-            <CopyText text="chalmers" />
+            Connect to <CopyText text="gaming.chs.se" /> with password <CopyText text="chalmers" />
           </p>
         </details>
         <details className="w-full space-y-4 rounded-sm border border-slate-800 p-4">
           <summary>OpenTTD</summary>
           <p>
-            Connect to <CopyText text="gaming.chs.se" /> with password{" "}
-            <CopyText text="chalmers" />
+            Connect to <CopyText text="gaming.chs.se" /> with password <CopyText text="chalmers" />
           </p>
         </details>
         {/* <details className="w-full space-y-4 rounded-sm border border-slate-800 p-4">

@@ -38,12 +38,12 @@ export function MinecraftLogin({ username }: { username?: string }) {
             disabled:cursor-wait disabled:bg-slate-800 disabled:text-slate-600
           `,
           state?.loading &&
-          `
+            `
             cursor-wait bg-slate-800 text-slate-600
             hover:bg-slate-700
           `,
           (state?.message === "Saved" || state?.message === "Updated") &&
-          `
+            `
             bg-lime-700
             hover:bg-lime-600
           `,

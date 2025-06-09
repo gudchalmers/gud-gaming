@@ -3,13 +3,7 @@
 import { MouseEvent, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
-export function CopyText({
-  text,
-  displayText,
-}: {
-  text: string;
-  displayText?: string;
-}) {
+export function CopyText({ text, displayText }: { text: string; displayText?: string }) {
   // use text as displayText if not provided
   displayText = displayText || text;
   const [showCheckmark, setShowCheckmark] = useState(false);
@@ -32,10 +26,7 @@ export function CopyText({
   return (
     <>
       <u>{displayText}</u>
-      <button
-        className={`group ml-px inline align-text-bottom`}
-        onClick={handleClick}
-      >
+      <button className={`group ml-px inline align-text-bottom`} onClick={handleClick}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

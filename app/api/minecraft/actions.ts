@@ -22,9 +22,7 @@ export async function register(prevState, formData: FormData) {
     return { message: "Access denied", loading: false, username };
   }
 
-  const response = await fetch(
-    `https://api.mojang.com/users/profiles/minecraft/${username}`,
-  );
+  const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`);
 
   if (response.status === 404 || !response.ok) {
     return { message: "Username not found", loading: false, username };
@@ -55,10 +53,7 @@ export async function register(prevState, formData: FormData) {
 
   // If the user already has a Minecraft account, update it
   if (existing) {
-    await db
-      .update(minecraft)
-      .set({ username, uuid })
-      .where(eq(minecraft.userId, userId));
+    await db.update(minecraft).set({ username, uuid }).where(eq(minecraft.userId, userId));
 
     console.log("Updated user with uuid", uuid);
 

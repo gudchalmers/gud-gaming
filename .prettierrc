@@ -1,12 +1,5 @@
 {
   "plugins": ["@ianvs/prettier-plugin-sort-imports"],
-  "importOrder": [
-    "^@core/(.*)$",
-    "",
-    "^@server/(.*)$",
-    "",
-    "^@ui/(.*)$",
-    "",
-    "^[./]"
-  ]
+  "importOrder": ["^@core/(.*)$", "", "^@server/(.*)$", "", "^@ui/(.*)$", "", "^[./]"],
+  "printWidth": 100
 }
