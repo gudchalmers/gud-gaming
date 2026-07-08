@@ -11,6 +11,7 @@ const compat = new FlatCompat({
 export default [
   ...compat.config({
     parser: "@typescript-eslint/parser",
+
     extends: [
       "eslint:recommended",
       "plugin:@typescript-eslint/recommended",
@@ -18,34 +19,34 @@ export default [
       "next/core-web-vitals",
       "next/typescript",
     ],
+
     overrides: [
       {
         files: ["*.ts", "*.tsx", "*.js"],
         parser: "@typescript-eslint/parser",
       },
     ],
+
     settings: {
       "better-tailwindcss": {
         entryPoint: "app/globals.css",
       },
     },
+
     parserOptions: {
       ecmaFeatures: {
         jsx: true,
       },
       ecmaVersion: "latest",
     },
+
     plugins: ["@typescript-eslint", "better-tailwindcss"],
+
     rules: {
-      "better-tailwindcss/multiline": [
-        "warn",
-        {
-          group: "newLine",
-          printWidth: 100,
-        },
-      ],
+      "better-tailwindcss/multiline": "off",
+      "better-tailwindcss/enforce-consistent-line-wrapping": "off",
     },
   }),
   js.configs.recommended,
-  globalIgnores([".next/*", "node_modules/*"]),
+  globalIgnores([".next/*", "node_modules/*", "next-env.d.ts"]),
 ] as Linter.Config[];
