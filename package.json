@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.4.2",
-    "@libsql/client": "^0.15.1",
+    "@libsql/client": "^0.17.0",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.45.0",
     "next": "15.5.20",
