@@ -14,8 +14,8 @@ export default function Home() {
     <>
       <div
         className={`
-          flex size-full flex-col items-center justify-center bg-linear-to-r from-slate-950
-          to-slate-800 pt-36 pb-20
+          flex size-full flex-col items-center justify-center bg-linear-to-r
+          from-slate-950 to-slate-800 pt-36 pb-20
         `}
       >
         <h1 className="m-20">
@@ -44,7 +44,8 @@ export default function Home() {
               src={minecraft}
               alt="Minecraft"
               className={`
-                size-full object-contain brightness-75 grayscale transition-[filter]
+                size-full object-contain brightness-75 grayscale
+                transition-[filter]
                 hover:brightness-100 hover:grayscale-0
               `}
             />
@@ -55,7 +56,8 @@ export default function Home() {
               src={factorio}
               alt="Factorio"
               className={`
-                size-full object-contain brightness-75 grayscale transition-[filter]
+                size-full object-contain brightness-75 grayscale
+                transition-[filter]
                 hover:brightness-100 hover:grayscale-0
               `}
             />
@@ -66,7 +68,8 @@ export default function Home() {
               src={openttd}
               alt="OpenTTD"
               className={`
-                size-full object-contain brightness-75 grayscale transition-[filter]
+                size-full object-contain brightness-75 grayscale
+                transition-[filter]
                 hover:brightness-100 hover:grayscale-0
               `}
             />
@@ -85,7 +88,8 @@ export default function Home() {
           <div className="h-40 w-64 max-w-full rounded-sm bg-slate-900">
             <div
               className={`
-                w-64 max-w-full text-center leading-40 brightness-75 transition-[filter]
+                w-64 max-w-full text-center leading-40 brightness-75
+                transition-[filter]
                 hover:brightness-100 hover:grayscale-0
               `}
             >
@@ -99,7 +103,8 @@ export default function Home() {
       </div>
       <footer
         className={`
-          mt-96 flex h-40 w-full items-center justify-center gap-8 bg-slate-900 p-4 text-slate-300
+          mt-96 flex h-40 w-full items-center justify-center gap-8 bg-slate-900
+          p-4 text-slate-300
         `}
       >
         <Link href={"https://gud.chs.chalmers.se"} className="h-16">

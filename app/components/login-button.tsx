@@ -13,7 +13,8 @@ export function LoginButton() {
     >
       <button
         className={`
-          relative flex flex-row rounded bg-slate-600 px-28 py-4 transition-colors
+          relative flex flex-row rounded bg-slate-600 px-28 py-4
+          transition-colors
           hover:bg-slate-500
         `}
         type="submit"
@@ -21,7 +22,8 @@ export function LoginButton() {
         Get Started
         <div
           className={`
-            absolute right-6 size-4 translate-y-1 rotate-45 border-t-2 border-r-2 border-slate-200
+            absolute right-6 size-4 translate-y-1 rotate-45 border-t-2
+            border-r-2 border-slate-200
           `}
         />
       </button>
