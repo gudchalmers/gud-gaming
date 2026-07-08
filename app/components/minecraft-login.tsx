@@ -15,7 +15,8 @@ export function MinecraftLogin({ username }: { username?: string }) {
     <Form action={formAction} className="space-y-2">
       <input
         className={`
-          block w-full rounded border-0 bg-slate-950 p-2 shadow ring-1 ring-slate-600 ring-inset
+          block w-full rounded border-0 bg-slate-950 p-2 shadow ring-1
+          ring-slate-600 ring-inset
           placeholder:text-slate-600
           focus:ring-2 focus:ring-slate-600 focus:ring-inset
         `}
@@ -30,23 +31,23 @@ export function MinecraftLogin({ username }: { username?: string }) {
         aria-live="polite"
         className={cn(
           `
-            flex w-full justify-center rounded bg-slate-700 p-2 text-sm/6 font-semibold text-white
-            shadow transition-colors
+            flex w-full justify-center rounded bg-slate-700 p-2 text-sm/6
+            font-semibold text-white shadow transition-colors
             hover:bg-slate-500
-            focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600
-            focus-visible:outline-solid
+            focus-visible:outline-2 focus-visible:outline-offset-2
+            focus-visible:outline-slate-600 focus-visible:outline-solid
             disabled:cursor-wait disabled:bg-slate-800 disabled:text-slate-600
           `,
           state?.loading &&
             `
-            cursor-wait bg-slate-800 text-slate-600
-            hover:bg-slate-700
-          `,
+              cursor-wait bg-slate-800 text-slate-600
+              hover:bg-slate-700
+            `,
           (state?.message === "Saved" || state?.message === "Updated") &&
             `
-            bg-lime-700
-            hover:bg-lime-600
-          `,
+              bg-lime-700
+              hover:bg-lime-600
+            `,
         )}
       >
         {state?.message || "Save"}

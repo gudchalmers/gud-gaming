@@ -43,8 +43,8 @@ export default async function Page() {
     <>
       <div
         className={`
-          flex size-full flex-col items-center justify-center bg-linear-to-r from-slate-950
-          to-slate-800 py-20
+          flex size-full flex-col items-center justify-center bg-linear-to-r
+          from-slate-950 to-slate-800 py-20
         `}
       >
         <h1 className="mb-10 text-8xl font-black uppercase">Games</h1>
@@ -52,7 +52,10 @@ export default async function Page() {
       </div>
 
       <div
-        className={`mx-auto mt-4 flex w-full max-w-3xl flex-col place-content-center gap-4 p-10`}
+        className={`
+          mx-auto mt-4 flex w-full max-w-3xl flex-col place-content-center gap-4
+          p-10
+        `}
       >
         <h2 className="text-xl font-semibold">Welcome {session?.user?.name}!</h2>
         <p>
